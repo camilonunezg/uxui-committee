@@ -59,7 +59,7 @@ colores, tipografía y elementos que son específicos de la empresa
   limitar el uso del color
   identificar color primario y secundario (tonos cercanos a esos para hacer enfasis)
   https://color.adobe.com/es/create/color-wheel
-  considerar el daltonismo % de la poblacion)
+  considerar el daltonismo (4.5% de la poblacion)
 
 - Contraste:
   altos contraste permiten resaltar ideas puntuales
