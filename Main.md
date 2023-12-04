@@ -126,6 +126,10 @@ Como desarrolladores fronted, es importante tener los siguientes aspectos en cue
 
 ### Herramientas de medición
 
+## Feedback recibido
+- Me falta diseño atómico y como impacta los desarrollos
+- Falta los productos o recursos que ustedes aportarían a la comunidad de alternova, ejemplo: charlas, live código, __artículos, o repositorios con ejemplos__
+
 ## Fuentes y artículos relacionados
 - [Primer - Github design system](https://primer.style/guides)
 - [Ejemplo Guía de estilo fronted](https://doc.clickup.com/3063428/d/h/2xfm4-23364/42c77c7d0894c02/2xfm4-40722)
