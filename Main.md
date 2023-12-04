@@ -1,27 +1,31 @@
 # Karma - Guía de UX/UI, HTML Semántico y Accesibilidad
 
-## Introducción 
+## Introducción
+
+El propósito de este documento es contextualizar a nuevos integrantes y establecer guías y lineamientos en cuanto a conceptos y prácticas, además ofrecer recursos a los actuales desarrolladores front que pertenecen a la empresa, a traves de ejemplos y documentación que resulten en un desarrollo de alto nivel.
 
 ## Índice
 
 - [UX/UI](#uxui)
-    - [Fundamentos](#fundamentos)
-    - [Traducción de diseño a código](#traducción-de-diseño-a-código)
-    - [Buenas de prácticas de diseño](#buenas-de-prácticas-de-diseño)
-    - [Design Systems](#design-systems)
-    - [Herramientas de análisis](#herramientas-de-análisis)
+
+  - [Fundamentos](#fundamentos)
+  - [Traducción de diseño a código](#traducción-de-diseño-a-código)
+  - [Buenas de prácticas de diseño](#buenas-de-prácticas-de-diseño)
+  - [Design Systems](#design-systems)
+  - [Herramientas de análisis](#herramientas-de-análisis)
 
 - [HTML Semántico](#html-semántico)
-    - [Fundamentos](#fundamentos-1)
-    - [¿Por qué usar HTML semántico?](#¿por-qué-usar-html-semántico)
-    - [Ejemplos + Buenas prácticas](#ejemplos--buenas-prácticas)
+
+  - [Fundamentos](#fundamentos-1)
+  - [¿Por qué usar HTML semántico?](#¿por-qué-usar-html-semántico)
+  - [Ejemplos + Buenas prácticas](#ejemplos--buenas-prácticas)
 
 - [Accesibilidad y Roles](#accesibilidad-y-roles)
-    - [Fundamentos](#fundamentos-2)
-    - [Aria](#aria)
-    - [Directrices](#directrices)
-    - [Errores comunes](#errores-comunes)
-    - [Herramientas de medición](#herramientas-de-medición)
+  - [Fundamentos](#fundamentos-2)
+  - [Aria](#aria)
+  - [Directrices](#directrices)
+  - [Errores comunes](#errores-comunes)
+  - [Herramientas de medición](#herramientas-de-medición)
 
 ## UX/UI
 
@@ -88,9 +92,11 @@ colores, tipografía y elementos que son específicos de la empresa
   altos contraste permiten resaltar ideas puntuales
 
 ### Design Systems
-¿Qué son?  Los sistemas de diseño son conjuntos de reglas, principios, componentes y directrices  para diseñar y desarrollar productos o servicios con consistencia visual, de interacción y experiencia únificada en todos los aspectos de una marca. Incluye elementos como colores, tipografías, iconografías, componentes y pautas de diseño.
 
->💡Algunos ejemplos de sistemas de diseño:
+¿Qué son? Los sistemas de diseño son conjuntos de reglas, principios, componentes y directrices para diseñar y desarrollar productos o servicios con consistencia visual, de interacción y experiencia únificada en todos los aspectos de una marca. Incluye elementos como colores, tipografías, iconografías, componentes y pautas de diseño.
+
+> 💡Algunos ejemplos de sistemas de diseño:
+>
 > - [Primer - Github](https://primer.style/)
 > - [Andes UI - Mercado Libre](https://www.behance.net/gallery/72037475/Andes-UI)
 > - [Fluent 2 - Microsoft](https://fluent2.microsoft.design/get-started/whatisnew)
@@ -104,9 +110,13 @@ Como desarrolladores fronted, es importante tener los siguientes aspectos en cue
 4. Accesibiliad: Garantiza que los componentes sean accesibles y utilizables para todos los posibles usuarios. Sigue las pautas definidas posteriormente en este documento.
 5. Feedback, feedback, feedback: los comentarios constructivos y tu perspectiva técnica y de negocio pueden beneficiar a todos los involucrados en el proyecto
 
+#### Atomic design
+
+Contexto, implementación e impacto
+
 ### Herramientas de análisis
 
-**[CSS Stats](https://cssstats.com/)**: A través de la url esta heramienta te va a permitir hacer un análisis de los colores, tipografías, bordes, sombras y demás elementos de la interfaz de usuario y el sistema de diseño, así podrás  revisar aspectos como la correcta implementación del sistema de diseño e inferir c uantitativamente la optimización del css.
+**[CSS Stats](https://cssstats.com/)**: A través de la url esta heramienta te va a permitir hacer un análisis de los colores, tipografías, bordes, sombras y demás elementos de la interfaz de usuario y el sistema de diseño, así podrás revisar aspectos como la correcta implementación del sistema de diseño e inferir c uantitativamente la optimización del css.
 
 ## HTML Semántico
 
@@ -119,7 +129,9 @@ Como desarrolladores fronted, es importante tener los siguientes aspectos en cue
 ## Accesibilidad y Roles
 
 ### Fundamentos
+
 ### Aria
+
 ### Directrices
 
 ### Errores comunes
@@ -127,10 +139,12 @@ Como desarrolladores fronted, es importante tener los siguientes aspectos en cue
 ### Herramientas de medición
 
 ## Feedback recibido
+
 - Me falta diseño atómico y como impacta los desarrollos
-- Falta los productos o recursos que ustedes aportarían a la comunidad de alternova, ejemplo: charlas, live código, __artículos, o repositorios con ejemplos__
+- Falta los productos o recursos que ustedes aportarían a la comunidad de alternova, ejemplo: charlas, live código, **artículos, o repositorios con ejemplos**
 
 ## Fuentes y artículos relacionados
+
 - [Primer - Github design system](https://primer.style/guides)
 - [Ejemplo Guía de estilo fronted](https://doc.clickup.com/3063428/d/h/2xfm4-23364/42c77c7d0894c02/2xfm4-40722)
 
@@ -157,10 +171,10 @@ Herramientas que hacen scraping para identificar mejoras en diseños
 # Notas </Eliminar al finalizar el entregable/>
 
 - Definir estándares de codificación: Establecer reglas claras para la escritura de código HTML, CSS y JavaScript, incluyendo convenciones de nomenclatura, indentación, comentarios y organización de archivos
-Gestionar la arquitectura del proyecto: Definir la estructura de directorios, la gestión de dependencias, la configuración de herramientas de construcción (build tools) y la integración de sistemas de control de versiones
-Establecer directrices de rendimiento: Incluir prácticas recomendadas para optimizar el rendimiento del frontend, como la compresión de recursos, el uso eficiente de imágenes y la minimización de solicitudes HTTP
-Documentar componentes reutilizables: Describir la implementación y el uso de componentes de interfaz de usuario reutilizables, como botones, formularios, barras de navegación, entre otros
-Considerar la usabilidad y la accesibilidad: Incluir pautas para garantizar la usabilidad y la accesibilidad del frontend, como el uso de etiquetas semánticas, el contraste de colores y la navegación coherente
+  Gestionar la arquitectura del proyecto: Definir la estructura de directorios, la gestión de dependencias, la configuración de herramientas de construcción (build tools) y la integración de sistemas de control de versiones
+  Establecer directrices de rendimiento: Incluir prácticas recomendadas para optimizar el rendimiento del frontend, como la compresión de recursos, el uso eficiente de imágenes y la minimización de solicitudes HTTP
+  Documentar componentes reutilizables: Describir la implementación y el uso de componentes de interfaz de usuario reutilizables, como botones, formularios, barras de navegación, entre otros
+  Considerar la usabilidad y la accesibilidad: Incluir pautas para garantizar la usabilidad y la accesibilidad del frontend, como el uso de etiquetas semánticas, el contraste de colores y la navegación coherente
 
 **Entregables de un comité**
 
