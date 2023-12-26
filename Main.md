@@ -2,7 +2,7 @@
 
 ## Introducción
 
-El propósito de este documento es contextualizar a nuevos integrantes y establecer guías y lineamientos en cuanto a conceptos y prácticas, además ofrecer recursos a los actuales desarrolladores front que pertenecen a la empresa, a traves de ejemplos y documentación que resulten en un desarrollo de alto nivel.
+El propósito de este documento es contextualizar a nuevos integrantes y establecer guías y lineamientos en cuanto a conceptos y prácticas referentes a UX/UI, HTML Semántico y Accesibilidad. Además ofrecer recursos a los actuales desarrolladores front  y  demás intersados, a traves de ejemplos y documentación que resulten en un desarrollo de alto nivel.
 
 ## Índice
 
@@ -102,7 +102,7 @@ colores, tipografía y elementos que son específicos de la empresa
 > - [Fluent 2 - Microsoft](https://fluent2.microsoft.design/get-started/whatisnew)
 > - [Material Design - Google](https://m3.material.io/)
 
-Como desarrolladores fronted, es importante tener los siguientes aspectos en cuenta para la correcta implementación de un sistema de diseño
+Como desarrolladores frontend, es importante tener los siguientes aspectos en cuenta para la correcta implementación de un sistema de diseño
 
 1. Comprende y familiarizate con el sistema de diseño. revisa si cuenta con componentes disponibles
 2. Colaboración con el equipo de diseño: establece una comunicación estrecha para resolver cualquier duda respecto al sistema de diseño con el equipo generador
@@ -110,9 +110,152 @@ Como desarrolladores fronted, es importante tener los siguientes aspectos en cue
 4. Accesibiliad: Garantiza que los componentes sean accesibles y utilizables para todos los posibles usuarios. Sigue las pautas definidas posteriormente en este documento.
 5. Feedback, feedback, feedback: los comentarios constructivos y tu perspectiva técnica y de negocio pueden beneficiar a todos los involucrados en el proyecto
 
+---
+
 #### Atomic design
 
 Contexto, implementación e impacto
+
+**Contexto**: El diseño atómico es una metodología para diseñar sistemas de interfaz de usuario de manera modular y jerárquica. Propuesto como una forma de abordar los desafíos de diseño en la creación de interfaces de usuario coherentes y escalables.
+
+La idea principal detrás del diseño atómico es conceptualizar una interfaz de usuario como un sistema compuesto por componentes más pequeños y más simples, que se organizan en niveles jerárquicos.
+
+![atomic design](/assets/images/atomic_design.png "Atomic Design")
+
+---
+
+**Implementación**:
+
+A continuación, se presenta un ejemplo de cómo implementar el diseño atómico en una aplicación hecha con VueJs, sin embargo, los principios per se son agnósticos al framework de preferencia.
+
+Comencemos a construir nuestro átomo, un botón:
+
+Definiremos qué propiedades tiene un botón y el grado de extensibilidad y modificación que éste tendrá:
+
+| Nombre 	| Predeterminado 	| Descripción 	|
+|---	|---	|---	|
+| label 	|  	| Texto principal 	|
+| type 	|  	| 'default'\|'primary'\|'secondary'\|'danger' Define el estilo visual del botón 	|
+| size 	| 'md' 	| 'sm' \| 'md' \| 'lg' Tamaño del botón 	|
+| isInactive 	| false 	| **boolean** Si el botón se encuentra deshabilitado 	|
+
+Observamos entonces que a través de props es posible modificar su texto principal, estilos como su estado de habilitado, el tipo y tamaño.
+
+```Javascript
+/** Definitions * */
+type ButtonType = 'default' | 'primary' | 'secondary' | 'danger'
+type ButtonSize = 'sm' | 'md' | 'lg'
+```
+
+Trasladamos lo definido en la tabla como requisitos,  al script del componente:
+
+```Javascript
+/** AtomButton.vue script section * */
+<script setup lang="ts">
+import { ButtonType, ButtonSize } from './utils';
+
+interface Props {
+  label: string,
+  type: ButtonType,
+  size?: ButtonSize,
+  isInactive?: boolean,
+}
+
+withDefaults(defineProps<Props>(), {
+  size: 'md',
+  isInactive: false,
+})
+</script>
+```
+En cuanto al template, adicional a la implementación de las props  antes vistas, existen dos slots (análogo hasta cierto punto a `children` en ReactJs ) para añadir opcionalmente los íconos leading y trailing
+
+```Javascript
+/** AtomButton.vue template section * */
+<template>
+  <button
+    :disabled="isInactive"
+    :class="[type, size]"
+  >
+  <slot name="leadingIcon"/>
+  {{ label }}
+  <slot name="trailingIcon"/>
+  </button>
+</template>
+```
+
+Definimos los estilos de acuerdo con props y estados:
+
+```Javascript
+
+<style scoped>
+  /* AtomButton.vue style section */
+button {
+  all: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #fafafa;
+  transition: opacity 200ms;
+}
+button:hover {
+opacity: 0.75;
+}
+button.default {
+  background-color: #64748b;
+}
+button.primary {
+  background-color: #0ea5e9;
+}
+button.secondary {
+  background-color: #34d399;
+}
+button.danger {
+  background-color: #f43f5e;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button.sm {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+}
+button.md {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+button.lg {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+}
+</style>
+```
+
+![atomic button](/assets/images/atom_button.png "Atomic Button")
+*Atomic Button con variaciones y múltiples configuraciones.*
+
+A continuación, podrás encontrar el ejemplo completo de éste desarrollo en el playground de Vue
+
+>[Ejemplo completo - Vue Playground - Atomic Button](https://play.vuejs.org/#eNq1WO9u2zYQfxVCAea08H87/1Q3Q9N0QIaiK5pgX6Z9oCVKYSORAkklzjJ/3MdtGPYAfZABe6Y+wo6kJEtZHCu2g6KJdLw7/u53xxMvd86bNO1eZ8RxnYn0BU0VkkRlKYoxi157jpKec+wxmqRcKPRG8eQkU4ozFAqeoFa3txBpNy2PeSwgIWXko+CpnNx5DIGvKYm/dZFUgrLIY/Pj3Rcem/TshuAeXhRJ0hgrAm8ITSTxFYVd/BhLCTBuBE5TIgwWrQAqAb02uublcnh8cZuSSQ8eSiEGaJ2phWsggKNTEuIsVp6DFOiDAMDmgt7xZCrM/0c9fBQ0weJ24SEtBQ09nBOfs6DmA+ItRQ29nEKCNCNlIMX7fftJz1K1hLdTKvE03ow6l8oOZRhydq0XlMjIVgjdyO8KmjfyvZT8Zl5XpOSc/kKQTDZKiQQfOuJkK4lYw9sK+tfwuJT0x3w1oTqOtkF1HG2T6qd4a0b1UzyuovpBXyuofk9wAO0f/UhlhmPZhHKfJFMi0ODgAaJKW7AuPh5oJ7abnEH0FQVQMU6Pv375+7dJzz5X7Hu1r48VVRA14+wDVyjkAiX6xN/jbU2wf/3x9cuf/zwX4Pf0qgK1UjHrov0d0P67MdoVZXQhMI2fVEff4WsuqKrEuqKIVL7FslC/2Tk6GI1ePVdePpGEXzcuotVgB/1+f//Z0L7lTFFmPnNNK6kJ5MG4vznkFaV0wtVl8zIaDEfjwbYaEYS4v9cswDUpPBwOD9ZhsM5cAQAu6/ZKDrKaC3iV6jbWj938lo7MpT+gEnRuXRQJGrzSEv3QKUw7Po+zhEkXCZISrHbHbTQIxYuFZoRTFw366WwhwpniHcFvwCqhLMGzXajtdNZGekGbzs1YkeNx2jC+AD8hjbqfJWcw4xhknuPzJKUxET+kOiQYcVyLWa/hOOY33xuZvr21C7l/SfyrB+Sf5UzL9DedSCL0wS3XFBYRgSuCXn53/oHM4LlcTHiQxaD9yOInIoEljdGqnWQsANgVPYP2zExnUA0X8t1MESaLoMz1EzTnRt9zYEJ7+0joC7ij7sjYAaPAYn3GazYq3iFroceydv5sLlvzcnSEwGLZgqyBEVNEhNgnyIyNFpIp3WJqNBHoo+dWHWuhvpLAcLnYwkipPMuv4bA25RzOI4MFiMhjN1Rd5vc5uVudVs1PGE7bFoD27KJWErTuuXRRCC1DbzRfMcjaQ2UJduFI6FErALIWvjwnXy1m3Z90lG2z+c92MZ+JY7hgMJyY+9eiu3hOz6zf3VnC0BxivKde7RaF/qRXHvgHDzSCo5OSACS9l5XBX1cApMQo5EP6y57H8l5paIOadFHGoDjMyU1xoLG6qN/dEyRBA/hhFqZcBER0BISSwYk+zE86NAYuXLQTYv3PiAA/FLXezEU8xT5Vt2jY7yfSHnm7uXsJX03TfHIVvePBXlWlm1/aLc4p9q8iweFM6WZk9twfH4wPpzWTvM8vNekTvEeOaiblB3Cp0WgcjI7qRvYrv9QiHI/CPVKLtygna1MJWscMPGZCalPGVce0CaLbcAVlYg1D+IB3bKn3u0dFcipZG5q02ezVPCT51hUPZXKXZH1hHEf/N+42MK/1d9NCukpCT9KnptIa0GvUyrPdQr+iVp5G81zmx7xZ4uEvVxUPplOBB5kYFegA+lccmb9vkZntcBrnvV5Ua0IA1pn/BzA4UvM=)
+
+Éste es sólo él desarrollo de un átomo sencillo que puede ser utilizado por ejemplo con otro átomo input, para formar una molécula.
+
+---
+
+**Impacto**:
+
+El imparto del diseño átomico se presenta en diferentes niveles: a nivdel de desarrollo, de proyeto y de organización
+
+- A nivel de desarrollador:
+    - Reutilización de componentes: Puede aprovechar esto incluso de proyectos preexistentes, acelerando la velocidad a la que se le entrega valor al proyecto
+    - Desarrollo incremental: Facilita la resolución progresiva de problemas y reduce el riesgo de errores
+    - Facilidad de mantenimiento: ya que obliga la modularidad de componentes y esto a su vez facilita la implementación de pruebas unitarias efectivas.
+    - Consistencia en la UI: al crear interfaces basadas en átomos, habrá siempre una coherencia visual, relacionada también a los sistemas de diseño estudiados previamente.
+-  A nivel de proyecto:
+    - Adaptabilidad al cambio: los requisitos y el diseño se modifican constantemente, estos cambios de pueden aplicar de manera fácil y granular en el diseño atómico.
+    - Escalabilidad: facilitando la gestión de errores y el mantenimiento de proyectos grandes
+- A nivel organizacional:
+   - Colaboracíon efectiva: al existir un lenguaje común entre el equipo de desarrollo y el equipo de diseño, mejorando la compresión mutua
+   - Gestión de recursos: La reutilización de componentes y la gestión de un sistema de diseño optimiza el tiempo necesario para diseñar y desarrollar
 
 ### Herramientas de análisis
 
@@ -138,10 +281,14 @@ Contexto, implementación e impacto
 
 ### Herramientas de medición
 
-## Feedback recibido
+## Feedback recibido </Eliminar al finalizar el entregable/>
 
+1ra entrega
 - Me falta diseño atómico y como impacta los desarrollos
 - Falta los productos o recursos que ustedes aportarían a la comunidad de alternova, ejemplo: charlas, live código, **artículos, o repositorios con ejemplos**
+
+## ¿Cómo contribuir a esta guía?
+Tanto el desarrollo de software como el diseño, son campos en constante evolución, es por esto que todos los lectores de esta guía son bienvenidos a aportar con comentarios, críticas constructivas, artículos y demás elementos que ayuden a esta guía a conservar su valor a los demás colaboradores. 
 
 ## Fuentes y artículos relacionados
 
