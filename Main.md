@@ -33,36 +33,90 @@ El propósito de este documento es contextualizar a nuevos integrantes y estable
 
 ### Traducción de diseño a código
 
-Entender la Estructura del Diseño
+1. **Entender la Estructura del Diseño:**
 
-- Identifica los componentes, secciones y la jerarquía de elementos.
+   Analiza y comprende la estructura general del diseño en Figma. Identifica los componentes, secciones y la jerarquía de elementos.
 
-Organización de Componentes
+2. **Organización de Componentes:**
 
-- Cada sección o elemento significativo debería ser un componente ndependiente
+   Divide el diseño en componentes lógicos y reutilizables. Cada sección o elemento significativo debería ser un componente independiente
 
-Estilos y CSS
+3. **Estilos y CSS:**
 
-- Estilos en línea, estilos en un archivo separado o incluso mediante el uso de preprocesadores
-  Mantén la coherencia en la nomenclatura de clases
+   Utiliza estilos modulares, estilos en línea o estilos en un archivo separado. Mantén la coherencia en la nomenclatura de clases.
 
-Flexibilidad Responsiva
+4. **Flexibilidad Responsiva:**
 
-- Utiliza clases y estilos que se adapten a diferentes tamaños de pantalla.
+   Utiliza clases y estilos que se adapten a diferentes tamaños de pantalla.
 
-Variables y Configuraciones
+5. **Variables y Configuraciones:**
 
-- Identifica variables clave en Figma (colores, tamaños de fuente, márgenes) y configúralas como variables en tu código
+   Identifica variables clave en Figma (colores, tamaños de fuente, márgenes) y configúralas como variables en tu código
 
-Imágenes y Recursos
+6. **Imágenes y Recursos:**
 
-- Descarga y almacena imágenes y otros recursos necesarios localmente
+   Descarga y almacena imágenes y otros recursos necesarios localmente en tu proyecto Vue. Utiliza las rutas relativas adecuadas.Implementa la lógica de manejo de datos en tus componentes.
 
-Colaboración con Diseñadores
+7. **Manejo de Datos Dinámicos:**
+   Si el diseño implica datos dinámicos, asegúrate de entender cómo se deben cargar y mostrar esos datos.
 
-- Mantén una comunicación abierta con los diseñadores
+8. **Pruebas y Verificación:**
+   Verifica que la funcionalidad y la apariencia en Vue coincidan con el diseño en Figma. Ajusta cualquier discrepancia y realiza pruebas en diferentes navegadores.
+
+9. **Colaboración con Diseñadores:**
+
+   Mantén una comunicación abierta con los diseñadores. Si hay elementos que no están claros o que podrían requerir ajustes para la implementación, coordina con el equipo de diseño.
+
+10. **Versionamiento y Control de Código:**
+
+    Utiliza un sistema de control de versiones (como Git) para rastrear los cambios en tu código. Esto es especialmente útil cuando trabajas en colaboración con otros desarrolladores o cuando necesitas retroceder a versiones anteriores.
+
+11. **Documentación:**
+
+    Documenta tu código. Incluye comentarios explicativos, especialmente para lógica compleja o soluciones no convencionales.
+
+La traducción de un diseño a código es un proceso iterativo, y es posible que necesites hacer ajustes a medida que avanzas. La colaboración continua entre diseñadores y desarrolladores es clave para lograr un producto final que se alinee tanto con el diseño como con las expectativas de la funcionalidad.
 
 ### Buenas de prácticas de diseño
+
+Las mejores prácticas de diseño web son un conjunto de pautas y enfoques que se consideran efectivos y beneficiosos para crear sitios web atractivos, funcionales y accesibles.
+
+1.  **Usabilidad:**
+
+    Las mejores prácticas se centran en la facilidad de uso y la experiencia del usuario. Los sitios web deben ser intuitivos y permitir a los usuarios navegar y encontrar información de manera eficiente.
+
+2.  **Accesibilidad:**
+
+    Un diseño web accesible garantiza que todas las personas, independientemente de sus habilidades o discapacidades, puedan acceder y utilizar el sitio. Esto incluye la atención a detalles como la navegación por teclado, el contraste de colores y el uso de etiquetas descriptivas.
+
+3.  **Velocidad de Carga:**
+
+    La optimización del rendimiento es fundamental. Los sitios web deben cargar rápidamente para retener la atención del usuario y mejorar el posicionamiento en los motores de búsqueda.
+
+4.  **Diseño Intuitivo:**
+
+    La disposición de elementos y la navegación deben seguir patrones intuitivos. Los usuarios deben comprender fácilmente cómo interactuar con el sitio y encontrar lo que buscan.
+
+5.  **Consistencia:**
+
+    La consistencia en el diseño, la tipografía, los colores y la navegación crea una experiencia coherente y profesional. Los elementos clave deben mantenerse uniformes en todas las páginas.
+
+6.  **Contenido Relevante y de Calidad:**
+
+    La información presentada en el sitio debe ser relevante, fácil de entender y valiosa para los usuarios. Un buen equilibrio entre texto, imágenes y otros medios contribuye a la efectividad del contenido.
+
+7.  **Seguridad:**
+
+    La seguridad es esencial para la confianza del usuario. La implementación de protocolos de seguridad, especialmente en sitios que manejan información confidencial, es una mejor práctica.
+
+8.  **SEO (Optimización para Motores de Búsqueda):**
+    La optimización del contenido y la estructura del sitio para los motores de búsqueda ayuda a mejorar la visibilidad en los resultados de búsqueda, aumentando la probabilidad de que los usuarios encuentren el sitio.
+
+9.  **Pruebas y Mejora Continua:**
+    La implementación de análisis y pruebas de usabilidad permite identificar áreas de mejora.
+
+10. **Diseño Responsivo:**
+    Un diseño web responsivo garantiza que el contenido se vea bien y sea funcional en diferentes dispositivos.
 
 Estándares de marca:
 colores, tipografía y elementos que son específicos de la empresa
